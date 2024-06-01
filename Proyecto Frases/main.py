@@ -30,6 +30,14 @@ formulario_html = """
     <title>Analizar Sentimiento Textual</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background-image: url('https://marketplace.canva.com/EAFGKWZ7S3c/1/0/1600w/canva-fondo-de-pantalla-caritas-felices-aesthetic-gradiente-morado-y-rosa-yuWW9A_crYQ.jpg'); /* URL de tu imagen de fondo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #000; /* Color del texto para que sea legible sobre el fondo */
+        }
+
         .resultado-container {
             display: {% if resultado %} block; {% else %} none; {% endif %};
         }
@@ -38,20 +46,21 @@ formulario_html = """
 <body>
     <div class="container">
         <center>
-        <h2 class="mt-5">Analizar Sentimiento Textual</h2>
+            <h2 class="mt-5">Analizar Sentimiento Textual</h2>
+
         </center>
         <form action="/analizar-sentimiento/" method="post" class="mt-3">
             <div class="form-group">
                 <label for="texto">Texto:</label>
                 <input type="text" id="texto" name="texto" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Analizar</button>
+            <button type="submit" class="btn btn-primary mt-2">Analizar</button>
         </form>
         <div class="resultado-container">
             {% if resultado %}
              <h2 class="mt-3">Resultado:</h2>
             <center>
-            <h4>{{ mensaje_sentimiento }}</h4>
+                <h4>{{ mensaje_sentimiento }}</h4>
             </center>
             {% endif %}
         </div>
